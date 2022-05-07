@@ -7,15 +7,15 @@ const app = express()
 app.use(express.json())
 
 // database
-const connectDB = require("./database/connection")
+const connectDB = require("../database/connection")
 connectDB()
 
 // routes
-const routesRouter = require("./routes/routes")
-app.use("/api", routesRouter)
+const authRouter = require("./routes/auth")
+app.use("/api/auth", authRouter)
 
 
-const port = process.env.PORT
+const port = process.env.AUTH_PORT
 app.listen(port, () => {
     console.log(`http://localhost:${port}`)
 })

@@ -6,7 +6,7 @@ const verifyUserAuth = (req, res, next) => {
     if (token) {
         jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decodedToken) => {
             if (err) {
-                res.json({auth: false, message: "Failed to authenticate"})
+                res.json({auth: false, message: err})
             } else {
                 req.user = decodedToken
                 // res.json({auth: true, message: decodedToken})
