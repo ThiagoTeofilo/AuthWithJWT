@@ -5,7 +5,6 @@ const router = express.Router()
 const controller = require("../controllers/mainController")
 
 // middleWare
-const findUserMiddleWare = require("../middlewares/findOneUser")
 const checkAuthMiddleware = require("../middlewares/verifyJwt")
 
 // signup route

@@ -21,6 +21,13 @@ const login = async (req, res) => {
     res.json({ accessToken: accessToken, refreshToken: refreshToken })
 }
 
+const logout = (req, res) => {
+    refreshTokens = refreshTokens.filter(token => {
+        token !== req.body.token
+    })
+    res.sendStatus(204)
+}
+
 const token = (req, res) => {
     const refreshToken = req.body.token
     if (refreshToken == null) return res.sendStatus(401)
@@ -34,5 +41,6 @@ const token = (req, res) => {
 
 module.exports = {
     login,
+    logout,
     token
 }

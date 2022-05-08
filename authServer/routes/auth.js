@@ -10,6 +10,9 @@ const findUserMiddleWare = require("../middlewares/findOneUser")
 // login route
 router.post("/login", findUserMiddleWare.findOneUser, controller.login)
 
+// logout route
+router.delete("/logout", controller.logout)
+
 // create new token
 router.post("/token", controller.token)
 
